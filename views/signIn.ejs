@@ -1,9 +1,14 @@
 <%- include("./partials/header.ejs") %> 
-        <!-- <h1>Welcome to My Express Application</h1>
-        <img 
-          class="cute-kitten"
-          src="/images/cute-kitten.jpg" 
-          alt="Cute Kitten"
-          height="500px"
-        /> -->
+
+<form method="POST" action="sign_in">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+    </div>
+
+    <button type="submit" class="btn btn-outline-secondary" btn-lg float-right>
+        Sign In
+    </button>
+</form>
+
 <%- include("./partials/footer.ejs") %> 

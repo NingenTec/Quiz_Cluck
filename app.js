@@ -2,14 +2,15 @@ const express = require("express");
 //Requiring express package
 const logger = require("morgan");
 //Requiring morgan package
+const dotenv = require('dotenv').config()
 const path = require("path");
 const cookieParser = require('cookie-parser')
 //Defining cookie parser for use
 const app = express();
 
 //Routes
-const cluckRouter = require("./routes/cluck")
 const indexCluckRouter = require("./routes/index");
+const cluckRouter = require("./routes/cluck")
 
 //Views setup
 app.set("view", path.join(__dirname, "view"));
