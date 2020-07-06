@@ -1,0 +1,25 @@
+<%- include("./partials/header.ejs") %> 
+
+<div class="clucks-container m-1">
+    <% if (clucks.length ===0){ %>
+        <h3>Get Clucking, today!</h3>
+    <%} else {%> <% for (let c = clucks.length -1; c >= 0; c--) { %>
+    
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="card-title w-50 m-1">
+                <%= clucks[c].username %> • <%= utils.timeSince(cluck[c].createdAt)
+                %>
+            </div>
+
+            <p class="card-text"><%= clucks[c].content %></p>
+            <% if (clucks[c].image_url !== '') {%>
+            <img src="<%= clucks[c].imageUrl %>" alt="imageUrl" class="w-75">
+            <% } %>
+        </div> 
+    </div>
+    <%} %> <%} %>
+</div>
+
+
+<%- include("./partials/footer.ejs") %> 

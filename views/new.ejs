@@ -1,0 +1,22 @@
+<%- include("./partials/header.ejs") %> 
+
+<!-- Form for New Cluck -->
+<div class="main-container">
+    <form method="POST" action="/cluck">
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea class="form-control" id="content" rows="3" name="content" placeholder="What's Cluckin' Doc?">
+            </textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="imageUrl">Image URL</label>
+            <input type="url" class="form-control" name="imageUrl" id="ImageUrl" placeholder="https://www.yourimage.com/image.png">
+        </div>
+
+    <input type="submit" class="btn btn-outline-secondary btn-lg float-right" value="Cluck!">
+  
+    </form>
+</div>
+
+<%- include("./partials/footer.ejs") %> 
