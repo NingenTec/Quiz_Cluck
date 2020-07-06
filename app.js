@@ -1,12 +1,16 @@
 const express = require("express");
 //Requiring express package
-const logger = require("morgan");
-//Requiring morgan package
-const dotenv = require('dotenv').config()
 const path = require("path");
 const cookieParser = require('cookie-parser')
 //Defining cookie parser for use
+const logger = require("morgan");
+//Requiring morgan package
+const bodyParser = require('body-parser')
 const app = express();
+const env = require('dotenv').config()
+const request = express.request;
+
+
 
 //Routes
 const indexCluckRouter = require("./routes/index");
@@ -18,13 +22,14 @@ app.set("view engine", "ejs");
 
 
 app.use(logger("dev"));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false}));
+app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(function(_req, _res, _next){
+app.use(function(_request, _res, _next){
     console.log("cookies", request.cookies);
-    const username = req.cookies.username;
-    res.locals.loggedInUser = username || "";
+    const username = request.cookies.username;
+    res.locals.signInUser = username || "";
     next();
 });
 
@@ -39,3 +44,5 @@ const ADDRESS = "localhost"; // 127.0.0.1
 app.listen(PORT, ADDRESS, () => {
   console.log(`Server listening on http://${ADDRESS}:${PORT}`);
 });
+
+module.exports = app;

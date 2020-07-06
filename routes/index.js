@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const queries = require("../DB/queries");
-const ONE_DAY = newDate(Date.now() + 1000 * 60 * 60 * 24);
+const ONE_DAY = new Date(Date.now() + 1000 * 60 * 60 * 24);
 
 //Home route
 router.get("/", function(req, res){
