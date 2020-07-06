@@ -1,0 +1,14 @@
+{
+  "name": "quiz_clucks_express",
+  "version": "1.0.0",
+  "description": "Express app to make clucks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Grea P",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
