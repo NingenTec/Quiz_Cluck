@@ -1,14 +1,25 @@
 <%- include("./partials/header.ejs") %> 
 
-<form method="POST" action="sign_in">
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username" required>
-    </div>
+<div class="signInBody">
+    <% if ( !request.cookies.username) {%>}
 
-    <button type="submit" class="btn btn-outline-secondary" btn-lg float-right>
-        Sign In
-    </button>
-</form>
+    <form method="POST" action="sign_in">
+        <div class="form-group">
+            <label for="username">Username</label><br>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
 
+        <button type="submit" class="btn btn-outline-secondary btn-lg float-right">
+            Sign In
+        </button>
+    </form>
+    <%} else {%>
+    <form action="/sign_in" method="DELETE">
+        <div>
+            <label for="username">Username</label>
+            <label><%=request.cookies.username%></label>
+        </div>
+    </form>
+    <%}%>
+</div>
 <%- include("./partials/footer.ejs") %> 
