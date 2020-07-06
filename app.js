@@ -16,6 +16,7 @@ const cluckRouter = require("./routes/cluck")
 app.set("view", path.join(__dirname, "view"));
 app.set("view engine", "ejs");
 
+
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
